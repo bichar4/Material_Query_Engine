@@ -20,7 +20,7 @@ module.exports = {
 
   exits: {
     success: {
-      description: 'Requesting user is a guest, so show the public landing page.',
+      description: 'The query has been found. Show the relevant data in table format',
       viewTemplatePath: 'pages/materialtable'
     },
     ok: {
@@ -42,7 +42,7 @@ module.exports = {
       .then((res) => {
         // console.log("My response", res.data)
         queryData = res.data
-        console.log(queryData)
+        // console.log(queryData)
         return exits.success(queryData)
       })
       .catch((err) => {

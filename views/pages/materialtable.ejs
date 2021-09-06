@@ -1,4 +1,61 @@
-<h1> This is just a template page for adding materialtable</h1>
+<h1> Tabular data for the provided query</h1>
 <%if (true){ %>
-    I am here <%= JSON.stringify(queryData.response[0])%>
-<% } %>
+    Total items on the query <%= queryData.response.length%>
+        <% } %>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Preety Formula </th>
+                        <th scope="col">tags</th>
+                        <th scope="col">density</th>
+                        <th scope="col">sg.symprec</th>
+                        <th scope="col">sg.source </th>
+                        <th scope="col">sg.symbol</th>
+                        <th scope="col"> sg.number</th>
+                        <th scope="col">sg.point_group </th>
+                        <th scope="col">sg.crystal_system</th>
+                        <th scope="col"> sg.hall</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(var i=0;i<queryData.response.length; i++) {%>
+                        <tr>
+                            <th scope="row">
+                                <%=queryData.response[i].material_id %>
+                            </th>
+                            <td>
+                                <%= queryData.response[i].pretty_formula%>
+                            </td>
+                            <td>
+                                <%= queryData.response[i].tags%>
+                            </td>
+                            <td>
+                                <%= queryData.response[i].density%>
+                            </td>
+                            <td>
+                                <%= queryData.response[i].spacegroup.symprec%>
+                            </td>
+                            <td>
+                                <%= queryData.response[i].spacegroup.source%>
+                            </td>
+                            <td>
+                                <%= queryData.response[i].spacegroup.symbol%>
+                            </td>
+                            <td>
+                                <%= queryData.response[i].spacegroup.number%>
+                            </td>
+                            <td>
+                                <%= queryData.response[i].spacegroup.point_group%>
+                            </td>
+                            <td>
+                                <%= queryData.response[i].spacegroup.crystal_system%>
+                            </td>
+                            <td>
+                                <%= queryData.response[i].spacegroup.hall%>
+                            </td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
