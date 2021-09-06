@@ -20,9 +20,8 @@ module.exports = {
 
   exits: {
     success: {
-      statusCode: 200,
       description: 'Requesting user is a guest, so show the public landing page.',
-      viewTemplatePath: 'pages/homepage.ejs'
+      viewTemplatePath: 'pages/materialtable'
     },
     ok: {
       responseType: 'ok'
@@ -41,8 +40,10 @@ module.exports = {
         }
       })
       .then((res) => {
-        console.log("My response", res.data)
-        return exits.ok(res.data)  
+        // console.log("My response", res.data)
+        queryData = res.data
+        console.log(queryData)
+        return exits.success(queryData)
       })
       .catch((err) => {
         console.log("This is an error", err)

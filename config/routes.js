@@ -19,8 +19,12 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': { view: 'pages/homepage' },
-  'POST /search': { action: 'search-material' },
+  '/': {
+    view: 'pages/homepage',
+  },
+  'POST /search': {
+    action: 'search-material',
+  }
 
 
   /***************************************************************************
