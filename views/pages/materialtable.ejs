@@ -3,9 +3,10 @@
     Total items on the query <%= queryData.response.length%>
         <% } %>
 
-            <table class="table">
+            <table class="table table-hover">
                 <thead>
                     <tr>
+                        <th scope="col">#</th>
                         <th scope="col">ID</th>
                         <th scope="col">Preety Formula </th>
                         <th scope="col">tags</th>
@@ -23,7 +24,12 @@
                     <% for(var i=0;i<queryData.response.length; i++) {%>
                         <tr>
                             <th scope="row">
-                                <%=queryData.response[i].material_id %>
+                                <%=i+1 %>
+                            </th>
+                            <th scope="row">
+                                <a href=<%= '/detail/'+i %> >
+                                    <%=queryData.response[i].material_id %>
+                                </a>
                             </th>
                             <td>
                                 <%= queryData.response[i].pretty_formula%>

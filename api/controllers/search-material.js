@@ -31,8 +31,8 @@ module.exports = {
 
 
   fn: async function (inputs, exits) {
-    console.log("I am inside search material")
-    console.log("I just for the value", inputs.queryString)
+    // console.log("I am inside search material")
+    // console.log("I just for the value", inputs.queryString)
     axios.get("https://www.materialsproject.org/rest/v2/materials/" + inputs.queryString + "/vasp/",
       {
         headers: {

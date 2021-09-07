@@ -22,6 +22,10 @@ module.exports.routes = {
   '/': {
     view: 'pages/homepage',
   },
+
+  'GET /detail/:index': {
+    action:'material-detail',
+  },
   'POST /search': {
     action: 'search-material',
   }
