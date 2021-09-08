@@ -1,2 +1,133 @@
-<h1>This is just a page for material detail</h1>
-Total items on the query <%= JSON.stringify(queryData.response[index])%>
+<br>
+<h1>
+    <u>
+        <%= queryData.response[index].pretty_formula %>
+            <%= queryData.response[index].material_id%>
+    </u>
+</h1>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <br>
+
+            <h5>
+                <%= queryData.response[index].pretty_formula %>, material id- <%= queryData.response[index].material_id
+                        %> <input type="button" value="Download JSON" onclick="DownloadJSON()" />
+                        <hr>
+            </h5>
+            <div>
+                <b>Energy:</b>
+                <%=queryData.response[index].energy%>
+                    </br>
+                    <b>energy_per_atom:</b>
+                    <%= queryData.response[index].energy_per_atom%>
+                        </br>
+                        <b>volume:</b>
+                        <%= queryData.response[index].volume%>
+                            </br>
+                            <b>formation_energy_per_atom:</b>
+                            <%= queryData.response[index].formation_energy_per_atom%>
+                                </br>
+                                <b>e_above_hull:</b>
+                                <%= queryData.response[index].e_above_hull%>
+                                    </br>
+                                    <b>density:</b>
+                                    <%= queryData.response[index].density%>
+                                        </br>
+                                        <b>total_magnetization</b>
+                                        <%= queryData.response[index].total_magnetization%>
+                                            </br>
+                                            <b>band_gap</b>
+                                            <%= queryData.response[index].band_gap%>
+
+            </div>
+        </div>
+        <div class="col-6">
+            <h3>spacegroup</h3>
+            <table class="table table-striped table-bordered table-hover">
+                <tbody>
+                    <tr>
+                        <td>symprec</td>
+                        <td>
+                            <%= queryData.response[index].spacegroup.symprec %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>symbol</td>
+                        <td>
+                            <%= queryData.response[index].spacegroup.symbol %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>number</td>
+                        <td>
+                            <%= queryData.response[index].spacegroup.number %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>point_group</td>
+
+                        <td>
+                            <%= queryData.response[index].spacegroup.point_group %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>crystal_system</td>
+                        <td>
+                            <%= queryData.response[index].spacegroup.crystal_system %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>hall</td>
+                        <td>
+                            <%= queryData.response[index].spacegroup.hall %>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        Restful Link : <a
+            href="https://www.materialsproject.org/rest/v2/materials/<%= queryData.response[index].material_id  %>/vasp/">
+            https://www.materialsproject.org/rest/v2/materials/<%= queryData.response[index].material_id %>/vasp/</a>
+    </div>
+</div>
+
+<script>
+    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(queryData.response[index]));
+    var dlAnchorElem = document.getElementById('downloadAnchorElem');
+    dlAnchorElem.setAttribute("href", dataStr);
+    dlAnchorElem.setAttribute("download", "scene.json");
+    dlAnchorElem.click();
+</script>
+
+<script type="text/javascript">
+    function DownloadJSON() {
+        //Build a JSON array containing Customer records.
+        var data = '<%= queryData.response[index]%>';
+        console.log(JSON.stringify(data))
+        //Convert JSON Array to string.
+        var json = JSON.stringify(data);
+ 
+        //Convert JSON string to BLOB.
+        json = [json];
+        var blob1 = new Blob(json, { type: "text/plain;charset=utf-8" });
+ 
+        //Check the Browser.
+        var isIE = false || !!document.documentMode;
+        if (isIE) {
+            window.navigator.msSaveBlob(blob1, "Customers.txt");
+        } else {
+            var url = window.URL || window.webkitURL;
+            link = url.createObjectURL(blob1);
+            var a = document.createElement("a");
+            a.download = "Customers.txt";
+            a.href = link;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    }
+</script>
