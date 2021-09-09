@@ -13,7 +13,7 @@
 
             <h5>
                 <%= queryData.response[index].pretty_formula %>, material id- <%= queryData.response[index].material_id
-                        %> <input type="button" value="Download JSON" onclick="DownloadJSON(<%= JSON.stringify(queryData.response[index])%>);" />
+                        %> <input class="btn btn-success"type="button" value="Download JSON" onclick="DownloadJSON(<%= JSON.stringify(queryData.response[index])%>);" />
                         <hr>
             </h5>
             <div>

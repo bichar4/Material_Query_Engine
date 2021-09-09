@@ -23,8 +23,9 @@ module.exports = {
       description: 'The query has been found. Show the relevant data in table format',
       viewTemplatePath: 'pages/materialtable'
     },
-    ok: {
-      responseType: 'ok'
+    notFound: {
+      description: 'The query has not been found. Show the error message',
+      viewTemplatePath: 'pages/materialtable'
     },
 
   },
@@ -40,13 +41,16 @@ module.exports = {
         }
       })
       .then((res) => {
-        // console.log("My response", res.data)
-        queryData = res.data
-        // console.log(queryData)
-        return exits.success(queryData)
+        if (res.data.valid_response) {
+          queryData = res.data
+          return exits.success({ queryData: res.data,err:null })
+        }
       })
       .catch((err) => {
         console.log("This is an error", err)
+        return exits.notFound({
+          err: err,
+        })
       })
     // All done..
     return;
