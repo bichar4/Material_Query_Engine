@@ -23,7 +23,7 @@ module.exports.routes = {
     view: 'pages/homepage',
   },
 
-  'GET /detail/:index': {
+  'GET /detail/:id': {
     action:'material-detail',
   },
   'POST /search': {

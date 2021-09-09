@@ -1,8 +1,8 @@
 <br>
 <h1>
     <u>
-        <%= queryData.response[index].pretty_formula %>
-            <%= queryData.response[index].material_id%>
+        <%= queryData.pretty_formula %>
+            <%= queryData.material_id%>
     </u>
 </h1>
 <br>
@@ -12,34 +12,34 @@
             <br>
 
             <h5>
-                <%= queryData.response[index].pretty_formula %>, material id- <%= queryData.response[index].material_id
-                        %> <input class="btn btn-success"type="button" value="Download JSON" onclick="DownloadJSON(<%= JSON.stringify(queryData.response[index])%>);" />
+                <%= queryData.pretty_formula %>, material id- <%= queryData.material_id
+                        %> <input class="btn btn-success"type="button" value="Download JSON" onclick="DownloadJSON(<%= JSON.stringify(queryData)%>);" />
                         <hr>
             </h5>
             <div>
                 <b>Energy:</b>
-                <%=queryData.response[index].energy%>
+                <%=queryData.energy%>
                     </br>
                     <b>energy_per_atom:</b>
-                    <%= queryData.response[index].energy_per_atom%>
+                    <%= queryData.energy_per_atom%>
                         </br>
                         <b>volume:</b>
-                        <%= queryData.response[index].volume%>
+                        <%= queryData.volume%>
                             </br>
                             <b>formation_energy_per_atom:</b>
-                            <%= queryData.response[index].formation_energy_per_atom%>
+                            <%= queryData.formation_energy_per_atom%>
                                 </br>
                                 <b>e_above_hull:</b>
-                                <%= queryData.response[index].e_above_hull%>
+                                <%= queryData.e_above_hull%>
                                     </br>
                                     <b>density:</b>
-                                    <%= queryData.response[index].density%>
+                                    <%= queryData.density%>
                                         </br>
                                         <b>total_magnetization</b>
-                                        <%= queryData.response[index].total_magnetization%>
+                                        <%= queryData.total_magnetization%>
                                             </br>
                                             <b>band_gap</b>
-                                            <%= queryData.response[index].band_gap%>
+                                            <%= queryData.band_gap%>
 
             </div>
         </div>
@@ -50,38 +50,38 @@
                     <tr>
                         <td>symprec</td>
                         <td>
-                            <%= queryData.response[index].spacegroup.symprec %>
+                            <%= queryData.spacegroup.symprec %>
                         </td>
                     </tr>
                     <tr>
                         <td>symbol</td>
                         <td>
-                            <%= queryData.response[index].spacegroup.symbol %>
+                            <%= queryData.spacegroup.symbol %>
                         </td>
                     </tr>
                     <tr>
                         <td>number</td>
                         <td>
-                            <%= queryData.response[index].spacegroup.number %>
+                            <%= queryData.spacegroup.number %>
                         </td>
                     </tr>
                     <tr>
                         <td>point_group</td>
 
                         <td>
-                            <%= queryData.response[index].spacegroup.point_group %>
+                            <%= queryData.spacegroup.point_group %>
                         </td>
                     </tr>
                     <tr>
                         <td>crystal_system</td>
                         <td>
-                            <%= queryData.response[index].spacegroup.crystal_system %>
+                            <%= queryData.spacegroup.crystal_system %>
                         </td>
                     </tr>
                     <tr>
                         <td>hall</td>
                         <td>
-                            <%= queryData.response[index].spacegroup.hall %>
+                            <%= queryData.spacegroup.hall %>
                         </td>
                     </tr>
                 </tbody>
@@ -90,8 +90,8 @@
     </div>
     <div class="row">
         Restful Link : <a
-            href="https://www.materialsproject.org/rest/v2/materials/<%= queryData.response[index].material_id  %>/vasp/">
-            https://www.materialsproject.org/rest/v2/materials/<%= queryData.response[index].material_id %>/vasp/</a>
+            href="https://www.materialsproject.org/rest/v2/materials/<%= queryData.material_id  %>/vasp/">
+            https://www.materialsproject.org/rest/v2/materials/<%= queryData.material_id %>/vasp/</a>
     </div>
 </div>
 

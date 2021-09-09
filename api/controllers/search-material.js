@@ -42,7 +42,6 @@ module.exports = {
       })
       .then((res) => {
         if (res.data.valid_response) {
-          queryData = res.data
           return exits.success({ queryData: res.data,err:null })
         }
       })
