@@ -13,7 +13,7 @@
 
             <h5>
                 <%= queryData.response[index].pretty_formula %>, material id- <%= queryData.response[index].material_id
-                        %> <input type="button" value="Download JSON" onclick="DownloadJSON()" />
+                        %> <input type="button" value="Download JSON" onclick="DownloadJSON(<%= JSON.stringify(queryData.response[index])%>);" />
                         <hr>
             </h5>
             <div>
@@ -95,19 +95,11 @@
     </div>
 </div>
 
-<script>
-    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(queryData.response[index]));
-    var dlAnchorElem = document.getElementById('downloadAnchorElem');
-    dlAnchorElem.setAttribute("href", dataStr);
-    dlAnchorElem.setAttribute("download", "scene.json");
-    dlAnchorElem.click();
-</script>
 
 <script type="text/javascript">
-    function DownloadJSON() {
+    function DownloadJSON(data) {
+        console.log(data)
         //Build a JSON array containing Customer records.
-        var data = '<%= queryData.response[index]%>';
-        console.log(JSON.stringify(data))
         //Convert JSON Array to string.
         var json = JSON.stringify(data);
  
@@ -118,12 +110,12 @@
         //Check the Browser.
         var isIE = false || !!document.documentMode;
         if (isIE) {
-            window.navigator.msSaveBlob(blob1, "Customers.txt");
+            window.navigator.msSaveBlob(blob1, "Material_data.txt");
         } else {
             var url = window.URL || window.webkitURL;
             link = url.createObjectURL(blob1);
             var a = document.createElement("a");
-            a.download = "Customers.txt";
+            a.download = "Material_data.txt";
             a.href = link;
             document.body.appendChild(a);
             a.click();
