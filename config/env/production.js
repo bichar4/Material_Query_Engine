@@ -251,8 +251,8 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     onlyAllowOrigins: [
-      'https://material-query-engine.herokuapp.com/',
-      'https://material-query-engine.herokuapp.com/',
+      'https://material-query-engine.herokuapp.com',
+      'https://material-query-engine.herokuapp.com',
     ],
 
 
