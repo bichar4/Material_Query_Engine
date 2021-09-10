@@ -8,3 +8,4 @@ EXPOSE 1337
 RUN chown -R node /usr/src/app
 USER node
 CMD ["npm", "start"]
+ENTRYPOINT ["CMD"]
