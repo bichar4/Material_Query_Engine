@@ -46,7 +46,6 @@ module.exports = {
         }
       })
       .catch((err) => {
-        console.log("This is an error", err)
         return exits.notFound({
           err: err,
         })
