@@ -29,7 +29,7 @@ module.exports = {
     axios.get("https://www.materialsproject.org/rest/v2/materials/" + this.req.params.id + "/vasp/",
       {
         headers: {
-          "x-api-key": "atfcnouGu4jdflvjap"
+          "x-api-key": sails.config.custom.apiKey
         }
       })
       .then((res) => {

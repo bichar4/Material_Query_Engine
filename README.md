@@ -20,6 +20,9 @@ https://material-query-app.herokuapp.com/
 
 After installing the latest docker in your system, run the following commands
 ```
+> git clone https://github.com/bichar4/Material_Query_Engine.git
+> Genrate api keys from https://materialsproject.org/open
+> Copy and paste your keys at config/custom.js 'apiKey' field
 > sudo docker build . -t bichar4/material-query-app
 > docker run -p 1337:1337 bichar4/material-query-app
 ```
